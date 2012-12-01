@@ -21,6 +21,7 @@ public class Gate extends Entity implements Comparable<Gate>
 	public transient Set<WorldCoord> frameCoords;
 	public transient Set<Integer> frameMaterialIds;
 	public WorldCoord sourceCoord;
+	public transient Player player;
 	public transient boolean frameDirIsNS; // True means NS direction. false means WE direction.
 	
 	private static transient final Set<BlockFace> expandFacesWE = new HashSet<BlockFace>();
@@ -174,7 +175,19 @@ public class Gate extends Entity implements Comparable<Gate>
 				}
 			}
 		}
+		if(player!=null&&frameMaterialIds.size()==1)
+		{
+			if(frameMaterialIds.contains(Material.DIAMOND_BLOCK.getId()))
+			{
+				if(!player.isOp())
+				{
+					frameMaterialIds.clear();
+					return false;
+				}
+			
+			}
 		
+		}
 		// Now we add the frame and content blocks as world coords to the lookup maps.
 		for (Block frameBlock : frameBlocks)
 		{

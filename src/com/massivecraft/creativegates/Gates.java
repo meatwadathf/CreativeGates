@@ -136,6 +136,7 @@ public class Gates extends EntityCollection<Gate>
 	{
 		Gate gate = new Gate();
 		gate.sourceCoord = sourceCoord;
+		gate.player = player;
 		//p.log("sourceCoord: "+sourceCoord);
 		
 		try

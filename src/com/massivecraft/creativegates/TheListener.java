@@ -213,6 +213,22 @@ public class TheListener implements Listener
 		// Find the target location
 		Gate gateTo = gateFrom.getMyTargetGate();
 		Location targetLocation = gateTo == null ? null : gateTo.getMyOwnExitLocation();
+
+		while(gateTo != null&&targetLocation == null)
+		{
+
+		    gateTo = gateTo.getMyTargetGate();
+		    if(gateFrom==gateTo)
+		    {
+		    
+		    	targetLocation = null;
+
+		    	break;
+		    }
+		    targetLocation = gateTo == null ? null : gateTo.getMyOwnExitLocation();
+		} 
+		
+
 		if (targetLocation == null)
 		{
 			event.getPlayer().sendMessage(p.txt.parse(Lang.useFailNoTargetLocation));
