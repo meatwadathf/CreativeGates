@@ -1,0 +1,20 @@
+main: com.massivecraft.creativegates.CreativeGates
+name: CreativeGates
+version: 1.4.5
+softdepend: [DimensionDoor, Multiverse-Core, MultiVerse, WorldManager]
+permissions:
+  creativegates.*:
+    default: true
+    children:
+      creativegates.create: true
+      creativegates.destroy: true
+      creativegates.use: true
+  creativegates.create:
+    default: false
+    description: create gates
+  creativegates.destroy:
+    default: false
+    description: destroy gates
+  creativegates.use:
+    default: false
+    description: use gates
